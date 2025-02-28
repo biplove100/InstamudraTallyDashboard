@@ -1,0 +1,85 @@
+<% layout("/layouts/Boilerplate") %>
+
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>Create a New Transaction</h3>
+            <form action="/transactions" method="post" class="needs-validation" novalidate>
+                
+                <div class="mb-3">
+                    <label for="transactionType" class="form-label">Transaction Type</label>
+                    <select name="transaction[transaction]" id="transactionType" class="form-select" required>
+                        <option value="">Select a transaction</option>
+                        <option value="Card Withdraw">Card Withdraw</option>
+                        <option value="Cash Payment">Cash Payment</option>
+                        <option value="Bill Payment">Bill Payment</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a transaction type.</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input name="transaction[amount]" id="amount" type="number" placeholder="Enter amount"
+                            class="form-control" required min="0">
+                        <div class="invalid-feedback">Enter Valid Amount</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="date" class="form-label">Date</label>
+                        <input name="transaction[date]" id="date" type="date" class="form-control" required>
+                        <div class="invalid-feedback">Enter Transaction Date</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cardholder" class="form-label">Cardholder Name</label>
+                    <input name="transaction[cardholder]" id="cardholder" type="text"
+                        placeholder="Enter cardholder name" class="form-control" required>
+                    <div class="invalid-feedback">Enter Cardholder Name:</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="bank" class="form-label">Bank</label>
+                        <input name="transaction[bank]" id="bank" type="text" placeholder="Enter bank name"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Enter Bank Name</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="cardNumber" class="form-label">Card Number (Last 4 Digits)</label>
+                        <input name="transaction[cardNumber]" id="cardNumber" type="text" placeholder="1234"
+                            pattern="\d{4}" class="form-control" required>
+                        <div class="invalid-feedback">Enter Card Number (last 4 digits)</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="expiry" class="form-label">Expiry (MM/YY)</label>
+                        <input name="transaction[expiry]" id="expiry" type="text" placeholder="MM/YY"
+                            pattern="\d{2}/\d{2}" class="form-control" required>
+                        <div class="invalid-feedback">Enter Expiry Date</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="cardType" class="form-label">Card Type</label>
+                        <select name="transaction[cardType]" id="cardType" class="form-select" required>
+                            <option value="">Select card type</option>
+                            <option value="Visa (1.8%)">Visa (1.8%)</option>
+                            <option value="HDFC Visa (2.5%)">HDFC Visa (2.5%)</option>
+                            <option value="MasterCard (2.9%)">MasterCard (2.9%)</option>
+                            <option value="AMEX (2.5%)">AMEX (2.5%)</option>
+                        </select>
+                        <div class="invalid-feedback">Select Card Type</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary my-3">ADD TRANSACTION</button>
+                <br>
+            </form>
+        </div>
+    </div>
+</body>
+
